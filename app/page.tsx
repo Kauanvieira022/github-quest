@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { BranchLesson } from "./components/BranchLesson";
 import { CommitLesson } from "./components/CommitLesson";
 
 type TerminalState = {
@@ -48,7 +49,7 @@ const modules: Module[] = [
     description: "Trabalhe em novas ideias sem interromper a versão principal.",
     lessons: 5,
     icon: "⑂",
-    available: false,
+    available: true,
   },
   {
     number: "04",
@@ -609,8 +610,10 @@ export default function Home() {
               Praticar no laboratório <span>↓</span>
             </a>
           </article>
-          ) : (
+          ) : activeModule === "02" ? (
             <CommitLesson />
+          ) : (
+            <BranchLesson />
           )}
         </div>
       </section>

@@ -27,6 +27,20 @@ test("includes the interactive commit message laboratory", async () => {
   assert.match(lesson, /72 caracteres/);
 });
 
+test("includes the visual branches laboratory", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  const lesson = await readFile(
+    new URL("app/components/BranchLesson.tsx", root),
+    "utf8",
+  );
+
+  assert.match(page, /BranchLesson/);
+  assert.match(lesson, /Branches são caminhos/);
+  assert.match(lesson, /git switch -c feat\/menu/);
+  assert.match(lesson, /git merge feat\/menu/);
+  assert.match(lesson, /Fluxo concluído/);
+});
+
 test("uses the standard Next.js toolchain", async () => {
   const packageJson = JSON.parse(
     await readFile(new URL("package.json", root), "utf8"),

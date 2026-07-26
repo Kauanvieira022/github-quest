@@ -15,6 +15,8 @@ projeto também serve como experiência real de colaboração no GitHub.
 - missão guiada para criar o primeiro repositório e commit;
 - módulo de commits com análise interativa de mensagens;
 - gerador de comandos para mensagens que atendem aos critérios;
+- módulo de branches com árvore visual do histórico;
+- missão interativa de criação, troca, merge e remoção de branch;
 - progresso salvo no navegador;
 - roteiro transparente de como o projeto usa GitHub;
 - acompanhamento dos Achievements como consequência do trabalho real.
