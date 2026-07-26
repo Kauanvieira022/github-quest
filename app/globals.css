@@ -714,6 +714,331 @@ a {
   font-weight: 800;
 }
 
+.commit-lesson {
+  position: relative;
+}
+
+.commit-anatomy {
+  min-height: 150px;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-rows: auto 1fr;
+  align-items: start;
+  margin: 32px 0 14px;
+  padding: 27px 28px 20px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--night);
+  color: var(--white);
+  font-family: var(--font-mono);
+}
+
+.commit-type,
+.commit-punctuation,
+.commit-subject {
+  font-size: clamp(18px, 2.4vw, 28px);
+  font-weight: 700;
+}
+
+.commit-type {
+  color: var(--violet);
+}
+
+.commit-punctuation {
+  margin-right: 9px;
+  color: #67717f;
+}
+
+.commit-subject {
+  color: var(--lime);
+}
+
+.anatomy-label {
+  margin-top: 25px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line-dark);
+}
+
+.anatomy-label strong,
+.anatomy-label span {
+  display: block;
+}
+
+.anatomy-label strong {
+  color: #c9d0da;
+  font-size: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.anatomy-label span {
+  margin-top: 5px;
+  color: #687382;
+  font-size: 7px;
+}
+
+.type-label {
+  grid-column: 1 / 3;
+  margin-right: 16px;
+}
+
+.subject-label {
+  grid-column: 3;
+}
+
+.commit-types {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 28px;
+}
+
+.commit-types > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 9px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #747c87;
+  font-size: 7px;
+}
+
+.commit-types code {
+  color: #5d4fd0;
+  font-family: var(--font-mono);
+  font-weight: 800;
+}
+
+.commit-coach {
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.58);
+}
+
+.coach-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.coach-heading > div {
+  display: grid;
+  gap: 4px;
+}
+
+.coach-heading div span {
+  color: #81887c;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.12em;
+}
+
+.coach-heading div strong {
+  font-size: 17px;
+  letter-spacing: -0.03em;
+}
+
+.coach-score {
+  min-width: 48px;
+  padding: 8px;
+  border-radius: 999px;
+  background: #e3dfd3;
+  color: #7d8279;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.coach-score.ready {
+  background: var(--lime);
+  color: var(--night);
+}
+
+.commit-coach > label {
+  display: block;
+  margin-bottom: 8px;
+  color: #656c64;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.commit-coach > input {
+  width: 100%;
+  min-height: 48px;
+  padding: 0 14px;
+  border: 1px solid #d2cec3;
+  border-radius: 9px;
+  outline: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  transition:
+    border-color 160ms ease,
+    box-shadow 160ms ease;
+}
+
+.commit-coach > input:focus {
+  border-color: #9f8fff;
+  box-shadow: 0 0 0 3px rgba(143, 124, 255, 0.12);
+}
+
+.coach-checks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+  margin: 16px 0;
+}
+
+.coach-checks > span {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #8a9087;
+  font-size: 8px;
+}
+
+.coach-checks i {
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid #d2cec3;
+  border-radius: 5px;
+  color: #9a9e96;
+  font-style: normal;
+  font-size: 8px;
+}
+
+.coach-checks > span.passed {
+  color: #536317;
+}
+
+.coach-checks .passed i {
+  border-color: var(--lime-dark);
+  background: var(--lime);
+  color: var(--night);
+  font-weight: 900;
+}
+
+.generated-command {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  min-height: 52px;
+  padding: 9px 10px 9px 15px;
+  border: 1px solid var(--line-dark);
+  border-radius: 10px;
+  background: var(--night);
+  color: #a7b0bc;
+}
+
+.generated-command > div {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.generated-command div > span {
+  color: var(--lime);
+  font-family: var(--font-mono);
+  font-size: 10px;
+}
+
+.generated-command code {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+
+.generated-command button {
+  flex: 0 0 auto;
+  padding: 7px 9px;
+  border-radius: 6px;
+  background: #252d38;
+  color: #8994a2;
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 7px;
+}
+
+.generated-command button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.generated-command.ready {
+  border-color: rgba(200, 241, 58, 0.26);
+}
+
+.generated-command.ready button {
+  background: var(--lime);
+  color: var(--night);
+  font-weight: 800;
+}
+
+.coach-feedback {
+  margin: 10px 0 0;
+  color: #848a82;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.commit-examples {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.commit-examples > div {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.commit-examples span,
+.commit-examples code,
+.commit-examples p {
+  display: block;
+}
+
+.commit-examples span {
+  color: #63800b;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+}
+
+.commit-examples .bad span {
+  color: #c65433;
+}
+
+.commit-examples code {
+  margin: 11px 0 8px;
+  color: #34383d;
+  font-family: var(--font-mono);
+  font-size: 8px;
+}
+
+.commit-examples p {
+  margin: 0;
+  color: #858b94;
+  font-size: 7px;
+  line-height: 1.45;
+}
+
 .lab-section {
   padding-block: 120px;
   background: var(--night);
@@ -1350,6 +1675,30 @@ a {
   .concept-flow i {
     transform: rotate(90deg);
     text-align: center;
+  }
+
+  .commit-anatomy {
+    padding-inline: 18px;
+  }
+
+  .commit-type,
+  .commit-punctuation,
+  .commit-subject {
+    font-size: 16px;
+  }
+
+  .coach-checks,
+  .commit-examples {
+    grid-template-columns: 1fr;
+  }
+
+  .generated-command {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .generated-command button {
+    width: 100%;
   }
 
   .lab-layout {
