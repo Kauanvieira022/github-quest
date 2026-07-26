@@ -14,6 +14,19 @@ test("presents GitHub Quest as an interactive Git course", async () => {
   assert.match(page, /O curso também pratica o que ensina/);
 });
 
+test("includes the interactive commit message laboratory", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  const lesson = await readFile(
+    new URL("app/components/CommitLesson.tsx", root),
+    "utf8",
+  );
+
+  assert.match(page, /CommitLesson/);
+  assert.match(lesson, /Commit Coach/);
+  assert.match(lesson, /git commit -m/);
+  assert.match(lesson, /72 caracteres/);
+});
+
 test("uses the standard Next.js toolchain", async () => {
   const packageJson = JSON.parse(
     await readFile(new URL("package.json", root), "utf8"),

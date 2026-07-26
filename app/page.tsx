@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import { CommitLesson } from "./components/CommitLesson";
 
 type TerminalState = {
   initialized: boolean;
@@ -39,7 +40,7 @@ const modules: Module[] = [
     description: "Registre mudanças pequenas, claras e fáceis de revisar.",
     lessons: 5,
     icon: "●",
-    available: false,
+    available: true,
   },
   {
     number: "03",
@@ -163,6 +164,7 @@ const initialEntries: TerminalEntry[] = [
 ];
 
 export default function Home() {
+  const [activeModule, setActiveModule] = useState("01");
   const [terminalState, setTerminalState] =
     useState<TerminalState>(initialTerminalState);
   const [entries, setEntries] = useState<TerminalEntry[]>(initialEntries);
@@ -537,11 +539,12 @@ export default function Home() {
               <span>TRILHA COMPLETA</span>
               <strong>{modules.length} módulos</strong>
             </div>
-            {modules.map((module, index) => (
+            {modules.map((module) => (
               <button
-                className={`module-row ${index === 0 ? "active" : ""}`}
+                className={`module-row ${activeModule === module.number ? "active" : ""}`}
                 key={module.number}
                 disabled={!module.available}
+                onClick={() => setActiveModule(module.number)}
               >
                 <span className="module-icon">{module.icon}</span>
                 <span className="module-copy">
@@ -549,12 +552,17 @@ export default function Home() {
                   <strong>{module.title}</strong>
                 </span>
                 <span className="module-meta">
-                  {module.available ? "AGORA" : `${module.lessons} AULAS`}
+                  {activeModule === module.number
+                    ? "ABERTO"
+                    : module.available
+                      ? "DISPONÍVEL"
+                      : `${module.lessons} AULAS`}
                 </span>
               </button>
             ))}
           </aside>
 
+          {activeModule === "01" ? (
           <article className="current-lesson">
             <div className="lesson-topline">
               <span>FUNDAMENTOS · AULA 1 DE 4</span>
@@ -601,6 +609,9 @@ export default function Home() {
               Praticar no laboratório <span>↓</span>
             </a>
           </article>
+          ) : (
+            <CommitLesson />
+          )}
         </div>
       </section>
 

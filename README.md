@@ -13,6 +13,8 @@ projeto também serve como experiência real de colaboração no GitHub.
 - primeira aula sobre o ciclo de estados do Git;
 - terminal interativo simulado;
 - missão guiada para criar o primeiro repositório e commit;
+- módulo de commits com análise interativa de mensagens;
+- gerador de comandos para mensagens que atendem aos critérios;
 - progresso salvo no navegador;
 - roteiro transparente de como o projeto usa GitHub;
 - acompanhamento dos Achievements como consequência do trabalho real.
