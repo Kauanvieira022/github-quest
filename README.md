@@ -1,20 +1,21 @@
 # GitHub Quest
 
-Uma jornada prática para aprender Git, colaboração open source e conhecer os
-Achievements do GitHub.
+Uma plataforma web para aprender Git e GitHub por meio de explicações curtas,
+laboratórios seguros e pequenas missões práticas.
 
-## O que já existe
+O próprio desenvolvimento do GitHub Quest segue o fluxo ensinado no curso:
+issues, branches, commits, Pull Requests, revisão e merge. Assim, a evolução do
+projeto também serve como experiência real de colaboração no GitHub.
 
-- catálogo das sete conquistas atualmente disponíveis;
-- filtros por tipo de missão;
-- checklist interativo;
-- progresso salvo localmente no navegador;
-- roteiro de aprendizado em três etapas;
-- interface responsiva em português.
+## Primeira versão
 
-> O GitHub Quest é um projeto educacional independente e não possui afiliação
-> oficial com o GitHub. Os critérios dos Achievements podem mudar enquanto o
-> recurso estiver em public preview.
+- trilha com oito módulos, dos fundamentos ao open source;
+- primeira aula sobre o ciclo de estados do Git;
+- terminal interativo simulado;
+- missão guiada para criar o primeiro repositório e commit;
+- progresso salvo no navegador;
+- roteiro transparente de como o projeto usa GitHub;
+- acompanhamento dos Achievements como consequência do trabalho real.
 
 ## Desenvolvimento
 
@@ -25,14 +26,31 @@ npm install
 npm run dev
 ```
 
-Para gerar a versão de produção:
+Abra [http://localhost:3000](http://localhost:3000).
+
+## Verificações
 
 ```bash
+npm run lint
+npm run test
 npm run build
 ```
 
-## Nossa primeira missão
+## Deploy
 
-O desenvolvimento do projeto deve acontecer por branches e Pull Requests. A
-primeira meta é criar dois PRs pequenos e úteis para praticar o fluxo completo e
-avançar em direção ao **Pull Shark**.
+O projeto usa Next.js e está preparado para deploy na Vercel. Configure
+`NEXT_PUBLIC_SITE_URL` com o endereço final do projeto antes da publicação.
+
+## Fluxo de contribuição
+
+1. Abra uma issue pequena e objetiva.
+2. Crie uma branch a partir da `main`.
+3. Faça commits focados e compreensíveis.
+4. Abra um Pull Request explicando a mudança.
+5. Valide, revise e faça o merge.
+
+## Aviso sobre Achievements
+
+O GitHub Quest não concede medalhas. Os Achievements são liberados pelo próprio
+GitHub quando ações qualificadas acontecem na plataforma. O projeto organiza
+seu desenvolvimento para praticar essas ações de maneira legítima.
