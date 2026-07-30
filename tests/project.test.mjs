@@ -74,6 +74,27 @@ test("includes the progressive Three.js visual experience", async () => {
   assert.equal(packageJson.dependencies.three, "0.185.1");
 });
 
+test("includes the remote repositories laboratory", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  const lesson = await readFile(
+    new URL("app/components/RemoteLesson.tsx", root),
+    "utf8",
+  );
+  const scene = await readFile(
+    new URL("app/components/RemoteFlowScene.tsx", root),
+    "utf8",
+  );
+
+  assert.match(page, /RemoteLesson/);
+  assert.match(lesson, /Local e GitHub são históricos/);
+  assert.match(lesson, /git fetch origin/);
+  assert.match(lesson, /git pull --ff-only origin main/);
+  assert.match(lesson, /git push -u origin feat\/perfil/);
+  assert.match(lesson, /Sincronização concluída/);
+  assert.match(scene, /WebGLRenderer/);
+  assert.match(scene, /prefers-reduced-motion/);
+});
+
 test("uses the standard Next.js toolchain", async () => {
   const packageJson = JSON.parse(
     await readFile(new URL("package.json", root), "utf8"),
