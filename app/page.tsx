@@ -4,6 +4,7 @@ import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import dynamic from "next/dynamic";
 import { BranchLesson } from "./components/BranchLesson";
 import { CommitLesson } from "./components/CommitLesson";
+import { AutomationLesson } from "./components/AutomationLesson";
 import { PullRequestLesson } from "./components/PullRequestLesson";
 import { RemoteLesson } from "./components/RemoteLesson";
 import { TeamLesson } from "./components/TeamLesson";
@@ -91,7 +92,7 @@ const modules: Module[] = [
     description: "Use Actions para testar, revisar e publicar com confiança.",
     lessons: 5,
     icon: "⚙",
-    available: false,
+    available: true,
   },
   {
     number: "08",
@@ -644,8 +645,10 @@ export default function Home() {
             <PullRequestLesson />
           ) : activeModule === "05" ? (
             <RemoteLesson />
-          ) : (
+          ) : activeModule === "06" ? (
             <TeamLesson />
+          ) : (
+            <AutomationLesson />
           )}
         </div>
       </section>

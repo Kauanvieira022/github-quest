@@ -1,0 +1,42 @@
+name: Qualidade
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: qualidade-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  qualidade:
+    name: Lint, testes e build
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Obter o código
+        uses: actions/checkout@v7
+
+      - name: Preparar o Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Instalar dependências
+        run: npm ci
+
+      - name: Verificar o código
+        run: npm run lint
+
+      - name: Executar os testes
+        run: npm run test
+
+      - name: Gerar o build
+        run: npm run build

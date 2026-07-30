@@ -24,6 +24,8 @@ projeto também serve como experiência real de colaboração no GitHub.
 - missão 3D de inspeção, fetch, comparação, pull e push;
 - módulo de trabalho em equipe com resolução consciente de conflitos;
 - missão colaborativa com sincronização, coautoria e revisão;
+- módulo de automação com eventos, jobs, runners e steps;
+- pipeline real no GitHub Actions para lint, testes e build;
 - progresso salvo no navegador;
 - roteiro transparente de como o projeto usa GitHub;
 - acompanhamento dos Achievements como consequência do trabalho real.
