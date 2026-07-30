@@ -6,6 +6,7 @@ import { BranchLesson } from "./components/BranchLesson";
 import { CommitLesson } from "./components/CommitLesson";
 import { PullRequestLesson } from "./components/PullRequestLesson";
 import { RemoteLesson } from "./components/RemoteLesson";
+import { TeamLesson } from "./components/TeamLesson";
 
 const GitGraphScene = dynamic(
   () =>
@@ -82,7 +83,7 @@ const modules: Module[] = [
     description: "Resolva conflitos, revise código e registre coautoria.",
     lessons: 5,
     icon: "∞",
-    available: false,
+    available: true,
   },
   {
     number: "07",
@@ -641,8 +642,10 @@ export default function Home() {
             <BranchLesson />
           ) : activeModule === "04" ? (
             <PullRequestLesson />
-          ) : (
+          ) : activeModule === "05" ? (
             <RemoteLesson />
+          ) : (
+            <TeamLesson />
           )}
         </div>
       </section>
