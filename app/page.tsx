@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { BranchLesson } from "./components/BranchLesson";
 import { CommitLesson } from "./components/CommitLesson";
 import { PullRequestLesson } from "./components/PullRequestLesson";
+import { RemoteLesson } from "./components/RemoteLesson";
 
 const GitGraphScene = dynamic(
   () =>
@@ -73,7 +74,7 @@ const modules: Module[] = [
     description: "Conecte o trabalho local ao GitHub com push, pull e fetch.",
     lessons: 6,
     icon: "↥",
-    available: false,
+    available: true,
   },
   {
     number: "06",
@@ -638,8 +639,10 @@ export default function Home() {
             <CommitLesson />
           ) : activeModule === "03" ? (
             <BranchLesson />
-          ) : (
+          ) : activeModule === "04" ? (
             <PullRequestLesson />
+          ) : (
+            <RemoteLesson />
           )}
         </div>
       </section>

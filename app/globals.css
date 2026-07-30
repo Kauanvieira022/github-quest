@@ -2120,6 +2120,345 @@ a {
   font-size: 9px;
 }
 
+.remote-lesson {
+  overflow: hidden;
+}
+
+.remote-concepts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 30px 0 18px;
+}
+
+.remote-concepts > div {
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.remote-concepts span {
+  color: #969d90;
+  font-family: var(--font-mono);
+  font-size: 7px;
+}
+
+.remote-concepts strong {
+  display: block;
+  margin-top: 14px;
+  font-size: 11px;
+}
+
+.remote-concepts p {
+  margin: 6px 0 0;
+  color: #818996;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.remote-lab {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.remote-lab-head {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.remote-lab-head > div:first-child {
+  display: grid;
+  gap: 5px;
+}
+
+.remote-lab-head > div:first-child span {
+  color: #6e61ce;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.remote-lab-head > div:first-child strong {
+  font-size: 13px;
+}
+
+.remote-visual {
+  height: 310px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 20% 50%, rgba(143, 124, 255, 0.12), transparent 24%),
+    radial-gradient(circle at 80% 50%, rgba(200, 241, 58, 0.1), transparent 24%),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    var(--night);
+  background-size: auto, auto, 22px 22px, 22px 22px, auto;
+}
+
+.remote-flow-scene,
+.remote-flow-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.remote-flow-canvas {
+  display: block;
+}
+
+.remote-flow-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  inset: 0;
+}
+
+.remote-flow-scene.fallback .remote-flow-fallback {
+  display: flex;
+}
+
+.remote-flow-fallback span {
+  padding: 10px;
+  border: 1px solid #4a5563;
+  border-radius: 50%;
+  color: #aab4c1;
+  font-family: var(--font-mono);
+  font-size: 6px;
+}
+
+.remote-flow-fallback i {
+  width: 50px;
+  height: 1px;
+  background: #596472;
+}
+
+.remote-node-label {
+  display: grid;
+  gap: 3px;
+  position: absolute;
+  z-index: 2;
+  bottom: 24px;
+  padding: 7px 9px;
+  border: 1px solid #384351;
+  border-radius: 7px;
+  background: rgba(24, 31, 40, 0.78);
+  backdrop-filter: blur(10px);
+  transform: translateX(-50%);
+}
+
+.remote-node-label.local {
+  left: 19%;
+  border-color: rgba(143, 124, 255, 0.28);
+}
+
+.remote-node-label.origin {
+  left: 50%;
+}
+
+.remote-node-label.github {
+  left: 81%;
+  border-color: rgba(200, 241, 58, 0.24);
+}
+
+.remote-node-label small,
+.remote-sync-state small {
+  color: #697582;
+  font-family: var(--font-mono);
+  font-size: 6px;
+  letter-spacing: 0.09em;
+}
+
+.remote-node-label strong {
+  color: #d1d7df;
+  font-family: var(--font-mono);
+  font-size: 8px;
+}
+
+.remote-node-label.local strong {
+  color: #b8aeff;
+}
+
+.remote-node-label.github strong {
+  color: var(--lime);
+}
+
+.remote-sync-state {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  position: absolute;
+  z-index: 3;
+  top: 18px;
+  left: 50%;
+  padding: 9px 11px;
+  border: 1px solid #3b4653;
+  border-radius: 9px;
+  background: rgba(21, 28, 37, 0.82);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(12px);
+  transform: translateX(-50%);
+}
+
+.remote-sync-state > span {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: #2b3541;
+  color: #8a96a4;
+  font-family: var(--font-mono);
+  font-size: 8px;
+}
+
+.remote-sync-state > div {
+  display: grid;
+  gap: 3px;
+}
+
+.remote-sync-state strong {
+  color: #b4bdc8;
+  font-size: 8px;
+}
+
+.remote-sync-state.complete {
+  border-color: rgba(200, 241, 58, 0.26);
+}
+
+.remote-sync-state.complete > span {
+  background: var(--lime);
+  color: var(--night);
+}
+
+.remote-sync-state.complete strong {
+  color: var(--lime);
+}
+
+.remote-workspace {
+  display: grid;
+  grid-template-columns: 165px minmax(0, 1fr);
+  border-top: 1px solid var(--line);
+}
+
+.remote-indicators {
+  padding: 20px 14px;
+  border-right: 1px solid var(--line);
+  background: #eee9df;
+}
+
+.remote-indicators > span {
+  display: block;
+  margin-bottom: 15px;
+  color: #959b92;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+}
+
+.remote-indicators > div {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.remote-indicators i {
+  width: 17px;
+  height: 17px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid #bbb8ae;
+  border-radius: 4px;
+  color: var(--night);
+  font-style: normal;
+  font-size: 7px;
+}
+
+.remote-indicators p {
+  margin: 0;
+  color: #888c84;
+  font-size: 7px;
+  line-height: 1.4;
+}
+
+.remote-indicators .done i {
+  border-color: var(--lime-dark);
+  background: var(--lime);
+}
+
+.remote-indicators .done p {
+  color: #596148;
+}
+
+.remote-action {
+  min-width: 0;
+  padding: 19px 20px 0;
+}
+
+.remote-next-action {
+  display: grid;
+  gap: 5px;
+}
+
+.remote-next-action > span {
+  color: #7970c4;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.remote-next-action strong {
+  font-size: 13px;
+}
+
+.remote-next-action p {
+  margin: 0;
+  color: #808792;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.remote-output {
+  min-height: 94px;
+  margin: 18px -20px 0;
+  padding: 12px 20px 16px;
+  border-top: 1px solid var(--line);
+  background: #eee9df;
+  font-family: var(--font-mono);
+}
+
+.remote-output > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 11px;
+  color: #969b92;
+  font-size: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.remote-output p {
+  margin: 0 0 3px;
+  overflow-wrap: anywhere;
+  color: #5f665e;
+  font-size: 7px;
+  line-height: 1.45;
+}
+
 .lab-section {
   padding-block: 120px;
   background: var(--night);
@@ -2917,6 +3256,55 @@ a {
 
   .pr-tabs .diff-add {
     margin-left: 0;
+  }
+
+  .remote-concepts {
+    grid-template-columns: 1fr;
+  }
+
+  .remote-lab-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .remote-visual {
+    height: 280px;
+  }
+
+  .remote-node-label {
+    padding: 6px 7px;
+  }
+
+  .remote-node-label small {
+    display: none;
+  }
+
+  .remote-node-label strong {
+    font-size: 7px;
+  }
+
+  .remote-sync-state {
+    width: calc(100% - 24px);
+    justify-content: center;
+    top: 12px;
+  }
+
+  .remote-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .remote-indicators {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .remote-action {
+    padding-inline: 14px;
+  }
+
+  .remote-output {
+    margin-inline: -14px;
+    padding-inline: 14px;
   }
 
   .lab-layout {

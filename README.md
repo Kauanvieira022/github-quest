@@ -20,6 +20,8 @@ projeto também serve como experiência real de colaboração no GitHub.
 - módulo de Pull Requests com proposta, revisão, correção e aprovação;
 - missão visual que acompanha os estados de uma PR até o merge;
 - cena 3D progressiva inspirada no grafo de commits com Three.js;
+- módulo de repositórios remotos com fluxo entre local, origin e GitHub;
+- missão 3D de inspeção, fetch, comparação, pull e push;
 - progresso salvo no navegador;
 - roteiro transparente de como o projeto usa GitHub;
 - acompanhamento dos Achievements como consequência do trabalho real.
