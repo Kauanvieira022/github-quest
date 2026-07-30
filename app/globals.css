@@ -139,18 +139,30 @@ a {
   display: flex;
   align-items: center;
   background:
-    radial-gradient(circle at 78% 45%, rgba(143, 124, 255, 0.16), transparent 28%),
-    radial-gradient(circle at 12% 85%, rgba(200, 241, 58, 0.08), transparent 25%),
+    radial-gradient(circle at 78% 42%, rgba(143, 124, 255, 0.2), transparent 31%),
+    radial-gradient(circle at 12% 85%, rgba(200, 241, 58, 0.1), transparent 25%),
     var(--night);
   color: var(--white);
   position: relative;
   overflow: hidden;
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(12, 16, 23, 0.96) 0%, rgba(12, 16, 23, 0.52) 48%, rgba(12, 16, 23, 0.12) 100%),
+    linear-gradient(0deg, rgba(12, 16, 23, 0.78) 0%, transparent 35%);
+}
+
 .hero-grid {
   position: absolute;
   inset: 0;
-  opacity: 0.12;
+  z-index: 1;
+  opacity: 0.1;
   background-image:
     linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
@@ -160,6 +172,81 @@ a {
   transform-origin: bottom;
 }
 
+.hero-scene {
+  width: 76%;
+  position: absolute;
+  z-index: 0;
+  inset: 34px -6% 0 auto;
+  opacity: 0.9;
+  pointer-events: none;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 0, 0, 0.68) 22%,
+    black 58%,
+    transparent 100%
+  );
+}
+
+.git-graph-scene,
+.git-graph-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.git-graph-canvas {
+  display: block;
+}
+
+.git-graph-fallback {
+  display: none;
+  position: absolute;
+  inset: 0;
+}
+
+.git-graph-scene.fallback .git-graph-fallback {
+  display: block;
+}
+
+.git-graph-fallback span {
+  width: 15px;
+  height: 15px;
+  position: absolute;
+  top: 48%;
+  border: 3px solid var(--lime);
+  border-radius: 50%;
+  background: var(--night);
+  box-shadow: 0 0 22px rgba(200, 241, 58, 0.4);
+}
+
+.git-graph-fallback span:nth-child(1) {
+  left: 30%;
+}
+
+.git-graph-fallback span:nth-child(2) {
+  left: 50%;
+}
+
+.git-graph-fallback span:nth-child(3) {
+  left: 70%;
+}
+
+.git-graph-fallback i {
+  height: 2px;
+  width: 20%;
+  position: absolute;
+  top: calc(48% + 7px);
+  background: rgba(200, 241, 58, 0.55);
+}
+
+.git-graph-fallback i:nth-of-type(1) {
+  left: calc(30% + 15px);
+}
+
+.git-graph-fallback i:nth-of-type(2) {
+  left: calc(50% + 15px);
+}
+
 .hero-content {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -167,7 +254,7 @@ a {
   gap: 85px;
   padding-top: 82px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .overline,
@@ -284,7 +371,88 @@ a {
 
 .hero-terminal {
   position: relative;
-  transform: rotate(1.5deg);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(9, 13, 19, 0.86);
+  box-shadow:
+    0 45px 110px rgba(0, 0, 0, 0.46),
+    0 0 0 1px rgba(200, 241, 58, 0.04) inset;
+  backdrop-filter: blur(18px);
+  transform: rotateY(-5deg) rotateX(1.5deg) rotateZ(0.7deg);
+  transform-origin: center right;
+}
+
+.hero-visual {
+  min-height: 530px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  perspective: 1200px;
+}
+
+.hero-visual-label {
+  display: grid;
+  gap: 4px;
+  position: absolute;
+  z-index: 3;
+  top: 30px;
+  right: 18px;
+  padding: 10px 12px;
+  border: 1px solid rgba(200, 241, 58, 0.18);
+  border-radius: 10px;
+  background: rgba(16, 22, 30, 0.75);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(14px);
+}
+
+.hero-visual-label span,
+.hero-branch-chip small {
+  color: #7f8996;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  letter-spacing: 0.1em;
+}
+
+.hero-visual-label strong {
+  color: var(--lime);
+  font-family: var(--font-mono);
+  font-size: 9px;
+}
+
+.hero-branch-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  z-index: 3;
+  left: -26px;
+  bottom: 36px;
+  padding: 11px 14px;
+  border: 1px solid rgba(143, 124, 255, 0.25);
+  border-radius: 11px;
+  background: rgba(22, 27, 39, 0.82);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.34);
+  backdrop-filter: blur(14px);
+}
+
+.hero-branch-chip > span {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: rgba(143, 124, 255, 0.16);
+  color: #b8aeff;
+}
+
+.hero-branch-chip > div {
+  display: grid;
+  gap: 3px;
+}
+
+.hero-branch-chip strong {
+  color: #d9dde4;
+  font-family: var(--font-mono);
+  font-size: 8px;
 }
 
 .window-bar {
@@ -2427,6 +2595,25 @@ a {
 }
 
 @media (max-width: 1000px) {
+  .hero::before {
+    background:
+      linear-gradient(180deg, rgba(12, 16, 23, 0.78), rgba(12, 16, 23, 0.28) 52%, rgba(12, 16, 23, 0.92)),
+      linear-gradient(90deg, rgba(12, 16, 23, 0.74), transparent);
+  }
+
+  .hero-scene {
+    width: 120%;
+    inset: 12% -10% 16% -10%;
+    opacity: 0.62;
+    mask-image: linear-gradient(
+      180deg,
+      transparent,
+      black 24%,
+      black 72%,
+      transparent
+    );
+  }
+
   .hero-content {
     grid-template-columns: 1fr;
     gap: 50px;
@@ -2449,6 +2636,13 @@ a {
 
   .hero-terminal {
     width: min(640px, 100%);
+    margin-inline: auto;
+    transform: rotateY(-3deg) rotateX(1deg) rotateZ(0.5deg);
+  }
+
+  .hero-visual {
+    width: min(680px, 100%);
+    min-height: 510px;
     margin-inline: auto;
   }
 
@@ -2506,6 +2700,30 @@ a {
 
   .hero-content {
     padding-top: 125px;
+  }
+
+  .hero-scene {
+    width: 165%;
+    inset: 24% -32% 20% -32%;
+    opacity: 0.48;
+  }
+
+  .hero-visual {
+    min-height: 450px;
+  }
+
+  .hero-terminal {
+    transform: none;
+  }
+
+  .hero-visual-label {
+    top: 4px;
+    right: 8px;
+  }
+
+  .hero-branch-chip {
+    left: 8px;
+    bottom: 2px;
   }
 
   .hero h1 {

@@ -19,6 +19,7 @@ projeto também serve como experiência real de colaboração no GitHub.
 - missão interativa de criação, troca, merge e remoção de branch;
 - módulo de Pull Requests com proposta, revisão, correção e aprovação;
 - missão visual que acompanha os estados de uma PR até o merge;
+- cena 3D progressiva inspirada no grafo de commits com Three.js;
 - progresso salvo no navegador;
 - roteiro transparente de como o projeto usa GitHub;
 - acompanhamento dos Achievements como consequência do trabalho real.
@@ -46,6 +47,12 @@ npm run build
 
 O projeto usa Next.js e está preparado para deploy na Vercel. Configure
 `NEXT_PUBLIC_SITE_URL` com o endereço final do projeto antes da publicação.
+
+## Experiência visual
+
+A camada 3D usa Three.js em um componente isolado e carregado apenas no
+navegador. A cena limita a resolução, pausa fora da tela, respeita a preferência
+de movimento reduzido e mantém um fallback visual para ambientes sem WebGL.
 
 ## Fluxo de contribuição
 
