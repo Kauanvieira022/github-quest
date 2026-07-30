@@ -116,6 +116,35 @@ test("includes the collaborative conflict resolution laboratory", async () => {
   assert.match(scene, /renderer\.dispose/);
 });
 
+test("includes the GitHub Actions automation laboratory", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  const lesson = await readFile(
+    new URL("app/components/AutomationLesson.tsx", root),
+    "utf8",
+  );
+  const scene = await readFile(
+    new URL("app/components/PipelineScene.tsx", root),
+    "utf8",
+  );
+  const workflow = await readFile(
+    new URL(".github/workflows/qualidade.yml", root),
+    "utf8",
+  );
+
+  assert.match(page, /AutomationLesson/);
+  assert.match(lesson, /Automação transforma acordos/);
+  assert.match(lesson, /actions\/checkout@v7/);
+  assert.match(lesson, /Pipeline aprovado/);
+  assert.match(scene, /WebGLRenderer/);
+  assert.match(scene, /prefers-reduced-motion/);
+  assert.match(scene, /renderer\.dispose/);
+  assert.match(workflow, /actions\/checkout@v7/);
+  assert.match(workflow, /actions\/setup-node@v7/);
+  assert.match(workflow, /npm run lint/);
+  assert.match(workflow, /npm run test/);
+  assert.match(workflow, /npm run build/);
+});
+
 test("uses the standard Next.js toolchain", async () => {
   const packageJson = JSON.parse(
     await readFile(new URL("package.json", root), "utf8"),

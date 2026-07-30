@@ -2900,6 +2900,426 @@ a {
   line-height: 1.45;
 }
 
+.automation-lesson {
+  overflow: hidden;
+}
+
+.automation-concepts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin: 30px 0 18px;
+}
+
+.automation-concepts > div {
+  padding: 15px;
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.automation-concepts span {
+  color: #969d90;
+  font-family: var(--font-mono);
+  font-size: 7px;
+}
+
+.automation-concepts strong {
+  display: block;
+  margin-top: 14px;
+  font-size: 11px;
+}
+
+.automation-concepts p {
+  margin: 6px 0 0;
+  color: #818996;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.automation-lab {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.automation-lab-head {
+  min-height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 25px;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.automation-lab-head > div:first-child {
+  display: grid;
+  gap: 5px;
+}
+
+.automation-lab-head > div:first-child span {
+  color: #6e61ce;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.automation-lab-head > div:first-child strong {
+  font-size: 13px;
+}
+
+.pipeline-visual {
+  height: 315px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 24% 48%, rgba(143, 124, 255, 0.13), transparent 25%),
+    radial-gradient(circle at 76% 48%, rgba(200, 241, 58, 0.09), transparent 25%),
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    var(--night);
+  background-size: auto, auto, 22px 22px, 22px 22px, auto;
+}
+
+.pipeline-scene,
+.pipeline-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.pipeline-canvas {
+  display: block;
+}
+
+.pipeline-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  inset: 0;
+}
+
+.pipeline-scene.fallback .pipeline-fallback {
+  display: flex;
+}
+
+.pipeline-fallback span {
+  padding: 10px;
+  border: 1px solid #4a5563;
+  border-radius: 50%;
+  color: #aab4c1;
+  font-family: var(--font-mono);
+  font-size: 6px;
+}
+
+.pipeline-fallback i {
+  width: 44px;
+  height: 1px;
+  background: #596472;
+}
+
+.pipeline-state {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  position: absolute;
+  z-index: 3;
+  top: 18px;
+  left: 50%;
+  padding: 9px 11px;
+  border: 1px solid rgba(143, 124, 255, 0.3);
+  border-radius: 9px;
+  background: rgba(21, 28, 37, 0.84);
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.24);
+  backdrop-filter: blur(12px);
+  transform: translateX(-50%);
+}
+
+.pipeline-state > span {
+  width: 25px;
+  height: 25px;
+  display: grid;
+  place-items: center;
+  border-radius: 7px;
+  background: #3a3064;
+  color: #b8aeff;
+  font-family: var(--font-mono);
+  font-size: 8px;
+}
+
+.pipeline-state > div {
+  display: grid;
+  gap: 3px;
+}
+
+.pipeline-state small,
+.pipeline-label small {
+  color: #697582;
+  font-family: var(--font-mono);
+  font-size: 6px;
+  letter-spacing: 0.09em;
+}
+
+.pipeline-state strong {
+  color: #c2baff;
+  font-size: 8px;
+}
+
+.pipeline-state.complete {
+  border-color: rgba(200, 241, 58, 0.3);
+}
+
+.pipeline-state.complete > span {
+  background: var(--lime);
+  color: var(--night);
+}
+
+.pipeline-state.complete strong {
+  color: var(--lime);
+}
+
+.pipeline-label {
+  display: grid;
+  gap: 3px;
+  position: absolute;
+  z-index: 2;
+  bottom: 22px;
+  padding: 7px 9px;
+  border: 1px solid #384351;
+  border-radius: 7px;
+  background: rgba(24, 31, 40, 0.8);
+  backdrop-filter: blur(10px);
+  transform: translateX(-50%);
+}
+
+.pipeline-label.trigger {
+  left: 16%;
+  border-color: rgba(143, 124, 255, 0.3);
+}
+
+.pipeline-label.runner {
+  left: 50%;
+}
+
+.pipeline-label.result {
+  left: 84%;
+  border-color: rgba(200, 241, 58, 0.25);
+}
+
+.pipeline-label strong {
+  color: #d1d7df;
+  font-family: var(--font-mono);
+  font-size: 8px;
+}
+
+.pipeline-label.trigger strong {
+  color: #b8aeff;
+}
+
+.pipeline-label.result strong {
+  color: var(--lime);
+}
+
+.automation-workspace {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr);
+  border-top: 1px solid var(--line);
+}
+
+.workflow-map {
+  padding: 18px 14px;
+  border-right: 1px solid var(--line);
+  background: #eee9df;
+}
+
+.workflow-map-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: #858b82;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.workflow-map-head small {
+  color: #7066bd;
+  font-size: 7px;
+}
+
+.workflow-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.workflow-row i {
+  width: 17px;
+  height: 17px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  border: 1px solid #bbb8ae;
+  border-radius: 50%;
+  color: var(--night);
+  font-style: normal;
+  font-size: 7px;
+}
+
+.workflow-row p {
+  margin: 0;
+  color: #888c84;
+  font-size: 7px;
+}
+
+.workflow-row.passed i {
+  border-color: var(--lime-dark);
+  background: var(--lime);
+}
+
+.workflow-row.passed p {
+  color: #596148;
+}
+
+.workflow-row.running i {
+  border-color: #8f7cff;
+  background: #8f7cff;
+  color: #f8f6ff;
+  box-shadow: 0 0 0 4px rgba(143, 124, 255, 0.12);
+}
+
+.workflow-row.running p {
+  color: #665caa;
+  font-weight: 700;
+}
+
+.workflow-summary {
+  display: grid;
+  gap: 5px;
+  margin: 16px -14px -18px;
+  padding: 11px 14px;
+  border-top: 1px solid #d6d1c7;
+  background: #e9e4da;
+  color: #898d85;
+  font-family: var(--font-mono);
+  font-size: 6px;
+}
+
+.workflow-summary b {
+  color: #5f655b;
+}
+
+.automation-action {
+  min-width: 0;
+  padding: 18px 20px 0;
+}
+
+.workflow-code {
+  overflow: hidden;
+  margin-bottom: 16px;
+  border: 1px solid #394350;
+  border-radius: 9px;
+  background: var(--night);
+}
+
+.workflow-code > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 11px;
+  border-bottom: 1px solid #394350;
+  color: #aeb8c4;
+  font-family: var(--font-mono);
+  font-size: 7px;
+}
+
+.workflow-code small {
+  color: var(--lime);
+  font-size: 6px;
+  letter-spacing: 0.08em;
+}
+
+.workflow-code pre {
+  min-height: 93px;
+  margin: 0;
+  padding: 11px;
+  overflow-x: auto;
+  color: #aeb8c4;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  line-height: 1.55;
+}
+
+.workflow-code b {
+  color: #aa9fff;
+  font-weight: 600;
+}
+
+.automation-next-action {
+  display: grid;
+  gap: 5px;
+}
+
+.automation-next-action > span {
+  color: #7970c4;
+  font-family: var(--font-mono);
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.automation-next-action strong {
+  font-size: 13px;
+}
+
+.automation-next-action p {
+  margin: 0;
+  color: #808792;
+  font-size: 8px;
+  line-height: 1.5;
+}
+
+.automation-command code {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.automation-output {
+  min-height: 90px;
+  margin: 18px -20px 0;
+  padding: 12px 20px 16px;
+  border-top: 1px solid var(--line);
+  background: #eee9df;
+  font-family: var(--font-mono);
+}
+
+.automation-output > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 11px;
+  color: #969b92;
+  font-size: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.automation-output p {
+  margin: 0 0 3px;
+  overflow-wrap: anywhere;
+  color: #5f665e;
+  font-size: 7px;
+  line-height: 1.45;
+}
+
 .lab-section {
   padding-block: 120px;
   background: var(--night);
@@ -3793,6 +4213,55 @@ a {
   }
 
   .team-output {
+    margin-inline: -14px;
+    padding-inline: 14px;
+  }
+
+  .automation-concepts {
+    grid-template-columns: 1fr;
+  }
+
+  .automation-lab-head {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pipeline-visual {
+    height: 280px;
+  }
+
+  .pipeline-state {
+    width: calc(100% - 24px);
+    justify-content: center;
+    top: 12px;
+  }
+
+  .pipeline-label {
+    padding: 6px 7px;
+  }
+
+  .pipeline-label small {
+    display: none;
+  }
+
+  .pipeline-label strong {
+    font-size: 7px;
+  }
+
+  .automation-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .workflow-map {
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .automation-action {
+    padding-inline: 14px;
+  }
+
+  .automation-output {
     margin-inline: -14px;
     padding-inline: 14px;
   }
