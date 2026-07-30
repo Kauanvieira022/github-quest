@@ -41,6 +41,21 @@ test("includes the visual branches laboratory", async () => {
   assert.match(lesson, /Fluxo concluído/);
 });
 
+test("includes the interactive Pull Request laboratory", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  const lesson = await readFile(
+    new URL("app/components/PullRequestLesson.tsx", root),
+    "utf8",
+  );
+
+  assert.match(page, /PullRequestLesson/);
+  assert.match(lesson, /Uma Pull Request é uma conversa/);
+  assert.match(lesson, /gh pr create --draft/);
+  assert.match(lesson, /Solicitar alterações/);
+  assert.match(lesson, /gh pr merge --squash --delete-branch/);
+  assert.match(lesson, /Pull Request integrada/);
+});
+
 test("uses the standard Next.js toolchain", async () => {
   const packageJson = JSON.parse(
     await readFile(new URL("package.json", root), "utf8"),
