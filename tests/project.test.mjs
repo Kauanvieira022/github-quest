@@ -56,6 +56,24 @@ test("includes the interactive Pull Request laboratory", async () => {
   assert.match(lesson, /Pull Request integrada/);
 });
 
+test("includes the progressive Three.js visual experience", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  const scene = await readFile(
+    new URL("app/components/GitGraphScene.tsx", root),
+    "utf8",
+  );
+  const packageJson = JSON.parse(
+    await readFile(new URL("package.json", root), "utf8"),
+  );
+
+  assert.match(page, /GitGraphScene/);
+  assert.match(page, /ssr: false/);
+  assert.match(scene, /WebGLRenderer/);
+  assert.match(scene, /prefers-reduced-motion/);
+  assert.match(scene, /renderer\.dispose/);
+  assert.equal(packageJson.dependencies.three, "0.185.1");
+});
+
 test("uses the standard Next.js toolchain", async () => {
   const packageJson = JSON.parse(
     await readFile(new URL("package.json", root), "utf8"),
@@ -64,5 +82,5 @@ test("uses the standard Next.js toolchain", async () => {
   assert.equal(packageJson.scripts.dev, "next dev");
   assert.equal(packageJson.scripts.build, "next build");
   assert.equal(packageJson.scripts.start, "next start");
-  assert.equal(packageJson.dependencies.next, "16.2.6");
+  assert.equal(packageJson.dependencies.next, "16.2.12");
 });

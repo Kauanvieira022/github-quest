@@ -1,9 +1,16 @@
 "use client";
 
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { BranchLesson } from "./components/BranchLesson";
 import { CommitLesson } from "./components/CommitLesson";
 import { PullRequestLesson } from "./components/PullRequestLesson";
+
+const GitGraphScene = dynamic(
+  () =>
+    import("./components/GitGraphScene").then((module) => module.GitGraphScene),
+  { ssr: false },
+);
 
 type TerminalState = {
   initialized: boolean;
@@ -429,6 +436,9 @@ export default function Home() {
 
       <section className="hero" id="inicio">
         <div className="hero-grid" aria-hidden="true" />
+        <div className="hero-scene" aria-hidden="true">
+          <GitGraphScene />
+        </div>
         <div className="hero-content page-shell">
           <div className="hero-copy">
             <span className="overline">
@@ -466,45 +476,58 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-terminal" aria-label="Exemplo de terminal Git">
-            <div className="window-bar">
-              <div>
-                <span />
-                <span />
-                <span />
-              </div>
-              <p>quest — ~/primeiro-repo</p>
-              <span>⌘</span>
+          <div className="hero-visual">
+            <div className="hero-visual-label">
+              <span>GRAFO AO VIVO</span>
+              <strong>main + 2 branches</strong>
             </div>
-            <div className="terminal-preview">
-              <p className="comment"># transforme uma pasta em repositório</p>
-              <p>
-                <span className="prompt">$</span> git init
-              </p>
-              <p className="terminal-success">
-                Initialized empty Git repository
-              </p>
-              <p>
-                <span className="prompt">$</span> git add README.md
-              </p>
-              <p>
-                <span className="prompt">$</span> git commit -m{" "}
-                <span className="string">&quot;start project&quot;</span>
-              </p>
-              <p className="terminal-success">
-                [main a1b2c3d] start project
-              </p>
-              <p className="cursor-line">
-                <span className="prompt">$</span> <span className="cursor" />
-              </p>
-            </div>
-            <div className="preview-card">
-              <span className="preview-icon">✓</span>
-              <div>
-                <strong>Primeiro checkpoint</strong>
-                <span>Você acabou de criar um histórico.</span>
+            <div className="hero-terminal" aria-label="Exemplo de terminal Git">
+              <div className="window-bar">
+                <div>
+                  <span />
+                  <span />
+                  <span />
+                </div>
+                <p>quest — ~/primeiro-repo</p>
+                <span>⌘</span>
               </div>
-              <small>+120 XP</small>
+              <div className="terminal-preview">
+                <p className="comment"># transforme uma pasta em repositório</p>
+                <p>
+                  <span className="prompt">$</span> git init
+                </p>
+                <p className="terminal-success">
+                  Initialized empty Git repository
+                </p>
+                <p>
+                  <span className="prompt">$</span> git add README.md
+                </p>
+                <p>
+                  <span className="prompt">$</span> git commit -m{" "}
+                  <span className="string">&quot;start project&quot;</span>
+                </p>
+                <p className="terminal-success">
+                  [main a1b2c3d] start project
+                </p>
+                <p className="cursor-line">
+                  <span className="prompt">$</span> <span className="cursor" />
+                </p>
+              </div>
+              <div className="preview-card">
+                <span className="preview-icon">✓</span>
+                <div>
+                  <strong>Primeiro checkpoint</strong>
+                  <span>Você acabou de criar um histórico.</span>
+                </div>
+                <small>+120 XP</small>
+              </div>
+            </div>
+            <div className="hero-branch-chip">
+              <span>⑂</span>
+              <div>
+                <small>HEAD</small>
+                <strong>feat/primeira-missão</strong>
+              </div>
             </div>
           </div>
         </div>
