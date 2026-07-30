@@ -22,6 +22,8 @@ projeto também serve como experiência real de colaboração no GitHub.
 - cena 3D progressiva inspirada no grafo de commits com Three.js;
 - módulo de repositórios remotos com fluxo entre local, origin e GitHub;
 - missão 3D de inspeção, fetch, comparação, pull e push;
+- módulo de trabalho em equipe com resolução consciente de conflitos;
+- missão colaborativa com sincronização, coautoria e revisão;
 - progresso salvo no navegador;
 - roteiro transparente de como o projeto usa GitHub;
 - acompanhamento dos Achievements como consequência do trabalho real.

@@ -95,6 +95,27 @@ test("includes the remote repositories laboratory", async () => {
   assert.match(scene, /prefers-reduced-motion/);
 });
 
+test("includes the collaborative conflict resolution laboratory", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  const lesson = await readFile(
+    new URL("app/components/TeamLesson.tsx", root),
+    "utf8",
+  );
+  const scene = await readFile(
+    new URL("app/components/TeamFlowScene.tsx", root),
+    "utf8",
+  );
+
+  assert.match(page, /TeamLesson/);
+  assert.match(lesson, /Conflitos são decisões compartilhadas/);
+  assert.match(lesson, /git merge origin\/main/);
+  assert.match(lesson, /Co-authored-by:/);
+  assert.match(lesson, /Colaboração pronta para revisão/);
+  assert.match(scene, /WebGLRenderer/);
+  assert.match(scene, /prefers-reduced-motion/);
+  assert.match(scene, /renderer\.dispose/);
+});
+
 test("uses the standard Next.js toolchain", async () => {
   const packageJson = JSON.parse(
     await readFile(new URL("package.json", root), "utf8"),
