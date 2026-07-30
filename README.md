@@ -26,6 +26,8 @@ projeto também serve como experiência real de colaboração no GitHub.
 - missão colaborativa com sincronização, coautoria e revisão;
 - módulo de automação com eventos, jobs, runners e steps;
 - pipeline real no GitHub Actions para lint, testes e build;
+- módulo de open source com a jornada completa de uma contribuição;
+- estrutura comunitária com guias, segurança e templates;
 - progresso salvo no navegador;
 - roteiro transparente de como o projeto usa GitHub;
 - acompanhamento dos Achievements como consequência do trabalho real.
@@ -67,6 +69,11 @@ de movimento reduzido e mantém um fallback visual para ambientes sem WebGL.
 3. Faça commits focados e compreensíveis.
 4. Abra um Pull Request explicando a mudança.
 5. Valide, revise e faça o merge.
+
+Consulte [CONTRIBUTING.md](CONTRIBUTING.md) para preparar o ambiente e abrir
+uma contribuição. A participação no projeto também segue o
+[Código de Conduta](CODE_OF_CONDUCT.md) e a
+[Política de Segurança](SECURITY.md).
 
 ## Aviso sobre Achievements
 

@@ -145,6 +145,51 @@ test("includes the GitHub Actions automation laboratory", async () => {
   assert.match(workflow, /npm run build/);
 });
 
+test("includes the open source contribution laboratory", async () => {
+  const page = await readFile(new URL("app/page.tsx", root), "utf8");
+  const lesson = await readFile(
+    new URL("app/components/OpenSourceLesson.tsx", root),
+    "utf8",
+  );
+  const scene = await readFile(
+    new URL("app/components/CommunityScene.tsx", root),
+    "utf8",
+  );
+
+  assert.match(page, /OpenSourceLesson/);
+  assert.match(lesson, /Open source é colaboração/);
+  assert.match(lesson, /gh repo fork/);
+  assert.match(lesson, /Achievements são consequência/);
+  assert.match(lesson, /Trilha inicial concluída/);
+  assert.match(scene, /WebGLRenderer/);
+  assert.match(scene, /prefers-reduced-motion/);
+  assert.match(scene, /renderer\.dispose/);
+});
+
+test("includes community health and contribution templates", async () => {
+  const paths = [
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md",
+    "SECURITY.md",
+    ".github/pull_request_template.md",
+    ".github/ISSUE_TEMPLATE/bug.yml",
+    ".github/ISSUE_TEMPLATE/melhoria.yml",
+    ".github/ISSUE_TEMPLATE/config.yml",
+  ];
+
+  const files = await Promise.all(
+    paths.map((path) => readFile(new URL(path, root), "utf8")),
+  );
+
+  assert.match(files[0], /npm run lint/);
+  assert.match(files[1], /Comportamentos esperados/);
+  assert.match(files[2], /Report a vulnerability/);
+  assert.match(files[3], /## Checklist/);
+  assert.match(files[4], /name: Relatar um problema/);
+  assert.match(files[5], /name: Propor uma melhoria/);
+  assert.match(files[6], /blank_issues_enabled: false/);
+});
+
 test("uses the standard Next.js toolchain", async () => {
   const packageJson = JSON.parse(
     await readFile(new URL("package.json", root), "utf8"),
