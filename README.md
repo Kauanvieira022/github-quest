@@ -17,6 +17,8 @@ projeto também serve como experiência real de colaboração no GitHub.
 - gerador de comandos para mensagens que atendem aos critérios;
 - módulo de branches com árvore visual do histórico;
 - missão interativa de criação, troca, merge e remoção de branch;
+- módulo de Pull Requests com proposta, revisão, correção e aprovação;
+- missão visual que acompanha os estados de uma PR até o merge;
 - progresso salvo no navegador;
 - roteiro transparente de como o projeto usa GitHub;
 - acompanhamento dos Achievements como consequência do trabalho real.

@@ -3,6 +3,7 @@
 import { FormEvent, useEffect, useMemo, useRef, useState } from "react";
 import { BranchLesson } from "./components/BranchLesson";
 import { CommitLesson } from "./components/CommitLesson";
+import { PullRequestLesson } from "./components/PullRequestLesson";
 
 type TerminalState = {
   initialized: boolean;
@@ -53,18 +54,18 @@ const modules: Module[] = [
   },
   {
     number: "04",
-    title: "Repositórios remotos",
-    description: "Conecte o trabalho local ao GitHub com push, pull e fetch.",
-    lessons: 6,
-    icon: "↥",
-    available: false,
-  },
-  {
-    number: "05",
     title: "Pull Requests",
     description: "Proponha mudanças, receba feedback e faça merges seguros.",
     lessons: 6,
     icon: "⇄",
+    available: true,
+  },
+  {
+    number: "05",
+    title: "Repositórios remotos",
+    description: "Conecte o trabalho local ao GitHub com push, pull e fetch.",
+    lessons: 6,
+    icon: "↥",
     available: false,
   },
   {
@@ -612,8 +613,10 @@ export default function Home() {
           </article>
           ) : activeModule === "02" ? (
             <CommitLesson />
-          ) : (
+          ) : activeModule === "03" ? (
             <BranchLesson />
+          ) : (
+            <PullRequestLesson />
           )}
         </div>
       </section>
