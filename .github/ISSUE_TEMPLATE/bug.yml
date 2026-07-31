@@ -1,0 +1,67 @@
+name: Relatar um problema
+description: Informe um comportamento incorreto ou inesperado no GitHub Quest.
+title: "fix: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Obrigado por ajudar a melhorar o projeto. Não inclua senhas, tokens ou dados pessoais.
+
+  - type: checkboxes
+    id: verificacoes
+    attributes:
+      label: Verificações iniciais
+      options:
+        - label: Pesquisei as Issues abertas e não encontrei este problema.
+          required: true
+        - label: Li e concordo em seguir o Código de Conduta.
+          required: true
+
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área afetada
+      options:
+        - Interface
+        - Laboratório interativo
+        - Visualização 3D
+        - Conteúdo da aula
+        - Automação
+        - Outra
+    validations:
+      required: true
+
+  - type: textarea
+    id: comportamento
+    attributes:
+      label: O que aconteceu?
+      description: Descreva o comportamento observado e o resultado esperado.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproducao
+    attributes:
+      label: Como reproduzir?
+      description: Liste passos mínimos e objetivos.
+      placeholder: |
+        1. Abra...
+        2. Clique...
+        3. Observe...
+    validations:
+      required: true
+
+  - type: input
+    id: ambiente
+    attributes:
+      label: Ambiente
+      description: Informe navegador, sistema e tamanho de tela quando relevante.
+      placeholder: Chrome 130, Windows 11, 1440 × 900
+    validations:
+      required: true
+
+  - type: textarea
+    id: evidencias
+    attributes:
+      label: Evidências adicionais
+      description: Adicione imagens ou logs sem informações sensíveis.

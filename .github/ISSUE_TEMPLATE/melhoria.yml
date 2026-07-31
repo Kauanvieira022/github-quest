@@ -1,0 +1,54 @@
+name: Propor uma melhoria
+description: Sugira uma evolução para o conteúdo, a experiência ou o projeto.
+title: "feat: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Boas propostas começam pelo problema. Explique a necessidade antes da solução.
+
+  - type: checkboxes
+    id: verificacoes
+    attributes:
+      label: Verificações iniciais
+      options:
+        - label: Pesquisei as Issues abertas e não encontrei uma proposta equivalente.
+          required: true
+        - label: Li e concordo em seguir o Código de Conduta.
+          required: true
+
+  - type: textarea
+    id: problema
+    attributes:
+      label: Qual problema esta melhoria resolve?
+      description: Descreva quem é afetado e em qual situação.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposta
+    attributes:
+      label: Como você imagina a solução?
+      description: Apresente uma direção possível sem exigir uma implementação específica.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: impacto
+    attributes:
+      label: Área principal
+      options:
+        - Conteúdo educacional
+        - Acessibilidade
+        - Interface e experiência
+        - Desempenho
+        - Automação e manutenção
+        - Comunidade
+    validations:
+      required: true
+
+  - type: textarea
+    id: contexto
+    attributes:
+      label: Contexto adicional
+      description: Inclua referências, exemplos ou alternativas consideradas.

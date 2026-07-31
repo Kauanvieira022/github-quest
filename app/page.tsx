@@ -5,6 +5,7 @@ import dynamic from "next/dynamic";
 import { BranchLesson } from "./components/BranchLesson";
 import { CommitLesson } from "./components/CommitLesson";
 import { AutomationLesson } from "./components/AutomationLesson";
+import { OpenSourceLesson } from "./components/OpenSourceLesson";
 import { PullRequestLesson } from "./components/PullRequestLesson";
 import { RemoteLesson } from "./components/RemoteLesson";
 import { TeamLesson } from "./components/TeamLesson";
@@ -100,7 +101,7 @@ const modules: Module[] = [
     description: "Organize releases, comunidade, segurança e contribuições.",
     lessons: 6,
     icon: "✦",
-    available: false,
+    available: true,
   },
 ];
 
@@ -647,8 +648,10 @@ export default function Home() {
             <RemoteLesson />
           ) : activeModule === "06" ? (
             <TeamLesson />
-          ) : (
+          ) : activeModule === "07" ? (
             <AutomationLesson />
+          ) : (
+            <OpenSourceLesson />
           )}
         </div>
       </section>
